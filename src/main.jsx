@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import 'font-awesome/css/font-awesome.min.css'
 import React from 'react'
+import App from './App';
 
 const username = "Harsh AI Academy";
 const flowers = ["Rose", "Lily", "Tulip", "Daisy", "Sunflower"];
@@ -23,5 +24,5 @@ const element4 = <ul>
 const element5 = <h1>2 + 2 is {2 + 2} {username} </h1>
 
 createRoot(document.getElementById('root')).render(
-  element5
+  <App />
 )
