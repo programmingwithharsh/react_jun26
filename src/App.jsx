@@ -7,8 +7,12 @@ import Welcome from './Welcome';
 import Login from './Login';
 class App extends React.Component {
 
-    constructor() { // Mounting - component is created and displayed
-        super();
+    constructor(props) { // Mounting - component is created and displayed
+        super(props);
+        this.state = {
+            username: "Anuradha",
+            products: []
+        }
         console.log("App constructor lifecycle 1");
     }
 
@@ -16,10 +20,21 @@ class App extends React.Component {
         console.log("App componentDidMount lifecycle 3");
     }
 
+    updateUsername = () => {
+        this.setState({
+            username: "Neha"
+        })
+    }
+
     render() { // lifecycle
+        console.log("State is", this.state);
         console.log("App render lifecycle 2");
         return (<div>
             <h1>This is App class Component</h1>
+            <div className="alert alert-success">
+                Username is {this.state.username}
+            </div>
+            <button onClick={this.updateUsername}>Update Username</button>
             <ProductList></ProductList>
             <AddProduct></AddProduct>
             <Star></Star>
