@@ -1,6 +1,6 @@
-function Star() {
+function Star(props) { // reusable component
     return (<div>
-        <h1>This is Star Functional Component</h1>
+        {props.rating}
         <span className="fa fa-star"></span>
         <span className="fa fa-star"></span>
         <span className="fa fa-star"></span>

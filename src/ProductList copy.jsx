@@ -1,5 +1,6 @@
-import Product from "./Product";
-function ProductList(props) { // props.products is the array of object [{}, {}]
+// import Product from "./Product";
+import Star from "./Star";
+function ProductList(props) {
     return (
         <div className="table-responsive">
             <h1>This is Product List Functional Component</h1>
@@ -17,7 +18,15 @@ function ProductList(props) { // props.products is the array of object [{}, {}]
                 </thead>
                 <tbody>
                     {props.products.map((product, index) => (
-                        <Product key={index} product={product} />
+                        <tr key={index}>
+                            <td><img src={product.imageUrl} width="50" height="50" /></td>
+                            <td>{product.productName}</td>
+                            <td>{product.productCode}</td>
+                            <td>{product.releaseDate}</td>
+                            <td>{product.description}</td>
+                            <td>{product.price}</td>
+                            <td><Star rating={product.starRating}></Star></td>
+                        </tr>
                     ))}
                 </tbody>
             </table>
