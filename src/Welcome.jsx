@@ -1,8 +1,11 @@
 import React from 'react';
 class Welcome extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: "Anuradha"
+        }
 
         localStorage.setItem("username", "Dheeraj"); // string
         localStorage.setItem("active", true); // boolean
@@ -26,8 +29,30 @@ class Welcome extends React.Component {
         console.log(users);
         console.log(localStorage.getItem("flowers"));
     }
+
+
+    updateUsername = () => {
+        this.setState({
+            username: "Neha"
+        })
+    }
+
     render() {
+        let myStyle = { color: 'white', backgroundColor: 'green' };
         return (<div>
+
+            <h1 style={{ color: 'white', backgroundColor: 'blue' }}>This is Welcome class Component</h1>
+            <h1 style={myStyle}>Another header with CSS</h1>
+            <div className="alert alert-success">
+                State username is {this.state.username}
+            </div>
+            <button onClick={this.updateUsername}>Update Username</button>
+
+            <div className="alert alert-success">
+                Props username is {this.props.userProps}
+            </div>
+
+
             <h1>Welcome to Users Module</h1>
             <p>Existing users</p>
             <button className='btn btn-outline-secondary'>Login</button>

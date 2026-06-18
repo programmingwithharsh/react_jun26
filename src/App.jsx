@@ -4,6 +4,9 @@ import AddProduct from './AddProduct';
 import Title from './Title';
 import Welcome from './Welcome';
 import Login from './Login';
+import Nav from './Nav';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 class App extends React.Component {
 
     constructor(props) { // Mounting - component is created and displayed
@@ -71,35 +74,21 @@ class App extends React.Component {
         console.log("App componentDidMount lifecycle 3");
     }
 
-    updateUsername = () => {
-        this.setState({
-            username: "Neha"
-        })
-    }
-
     render() { // lifecycle
         console.log("State is", this.state);
         console.log("App render lifecycle 2");
-        let myStyle = { color: 'white', backgroundColor: 'green' };
-        return (<div>
-            <h1 style={{ color: 'white', backgroundColor: 'blue' }}>This is App class Component</h1>
-            <h1 style={myStyle}>Another header with CSS</h1>
-            <div className="alert alert-success">
-                State username is {this.state.username}
-            </div>
-            <button onClick={this.updateUsername}>Update Username</button>
 
-            <div className="alert alert-success">
-                Props username is {this.props.userProps}
-            </div>
-
-            <ProductList products={this.state.products}></ProductList>
-            <AddProduct></AddProduct>
-
-            <Title user={this.props.userProps}></Title>
-            <Welcome></Welcome>
-            <Login></Login>
-        </div>
+        return (<BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Nav />}>
+                    <Route index element={<Welcome userProps={this.props.userProps}></Welcome>} />
+                    <Route path="/products" element={<ProductList products={this.state.products}></ProductList>} />
+                    <Route path="/title" element={<Title user={this.props.userProps}></Title>} />
+                    <Route path="/addproduct" element={<AddProduct></AddProduct>} />
+                    <Route path="/login" element={<Login></Login>} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
         );
     }
 }
