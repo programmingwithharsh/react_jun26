@@ -4,6 +4,7 @@ import AddProduct from './AddProduct';
 import Star from './Star';
 import Title from './Title';
 import Welcome from './Welcome';
+import Login from './Login';
 class App extends React.Component {
     render() { // lifecycle
         return (<div>
@@ -13,6 +14,7 @@ class App extends React.Component {
             <Star></Star>
             <Title></Title>
             <Welcome></Welcome>
+            <Login></Login>
         </div>
         );
     }
