@@ -1,5 +1,6 @@
-function Title() {
-    return ( <h1>This is Title Functional Component</h1> );
+function Title(props) {
+    console.log("Title props is", props);
+    return ( <h1>This is Title Functional Component, Props username is {props.user}</h1> );
 }
 
 export default Title;

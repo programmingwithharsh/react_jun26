@@ -14,6 +14,7 @@ class App extends React.Component {
             products: []
         }
         console.log("App constructor lifecycle 1");
+        console.log("Props is", this.props);
     }
 
     componentDidMount() { // Mounting - component is created and displayed
@@ -32,13 +33,18 @@ class App extends React.Component {
         return (<div>
             <h1>This is App class Component</h1>
             <div className="alert alert-success">
-                Username is {this.state.username}
+                State username is {this.state.username}
             </div>
             <button onClick={this.updateUsername}>Update Username</button>
-            <ProductList></ProductList>
+
+            <div className="alert alert-success">
+                Props username is {this.props.userProps}
+            </div>
+
+            <ProductList products={this.state.products}></ProductList>
             <AddProduct></AddProduct>
             <Star></Star>
-            <Title></Title>
+            <Title user={this.props.userProps}></Title>
             <Welcome></Welcome>
             <Login></Login>
         </div>

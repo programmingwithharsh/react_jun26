@@ -2,9 +2,17 @@ import { createRoot } from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import 'font-awesome/css/font-awesome.min.css'
-import React from 'react'
+// import React from 'react'
 import App from './App';
 
+const user = "Himanshi Raikwar"; // string
+const interests = ["Listening Music", "Reading Books", "Travelling", "Playing badminton"]; // array
+const birth = { // object
+  year: 2000,
+  place: "Pune"
+};
+
+/*
 const username = "Harsh AI Academy";
 const flowers = ["Rose", "Lily", "Tulip", "Daisy", "Sunflower"];
 
@@ -22,7 +30,8 @@ const element4 = <ul>
   ))}
 </ul>
 const element5 = <h1>2 + 2 is {2 + 2} {username} </h1>
+*/
 
 createRoot(document.getElementById('root')).render(
-  <App />
+  <App x="2" userProps={user} interestsProps={interests} birthProps={birth} />
 )

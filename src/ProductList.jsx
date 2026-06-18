@@ -1,8 +1,10 @@
 import Product from "./Product";
-function ProductList() {
+function ProductList(props) {
     return (<div>
         <h1>This is Product List Functional Component</h1>
-        <Product></Product>
+        {props.products.map((product, index) => (
+            <Product key={index} {...product} />
+        ))}
     </div>);
 }
 
