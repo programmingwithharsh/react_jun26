@@ -6,6 +6,9 @@ import Welcome from './Welcome';
 import Login from './Login';
 import Nav from './Nav';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ProductDetail from './ProductDetail';
+import Register from './Register';
+import PageNotFound from './PageNotFound';
 
 class App extends React.Component {
 
@@ -84,9 +87,12 @@ class App extends React.Component {
                     <Route index element={<Welcome userProps={this.props.userProps}></Welcome>} />
                     <Route path="/products" element={<ProductList products={this.state.products}></ProductList>} />
                     <Route path="/title" element={<Title user={this.props.userProps}></Title>} />
-                    <Route path="/addproduct" element={<AddProduct></AddProduct>} />
-                    <Route path="/login" element={<Login></Login>} />
+                    <Route path="/addproduct" element={<AddProduct />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/product/:id" element={<ProductDetail />} />
+                    <Route path="*" element={<PageNotFound />} />
                 </Route>
+                <Route path="/register" element={<Register />} />
             </Routes>
         </BrowserRouter>
         );
