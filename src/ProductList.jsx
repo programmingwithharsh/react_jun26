@@ -1,8 +1,10 @@
 import Product from "./Product";
+import { Link } from "react-router-dom";
 function ProductList(props) { // props.products is the array of object [{}, {}]
     return (
         <div className="table-responsive">
             <h1>This is Product List Functional Component</h1>
+            <Link className="btn btn-primary m-2" to="/addproduct">Add Product</Link>
             <table className="table table-striped table-bordered table-hover">
                 <thead>
                     <tr>
