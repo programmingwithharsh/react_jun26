@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 class Welcome extends React.Component {
 
     constructor(props) {
@@ -55,9 +57,9 @@ class Welcome extends React.Component {
 
             <h1>Welcome to Users Module</h1>
             <p>Existing users</p>
-            <button className='btn btn-outline-secondary'>Login</button>
+            <Link className="btn btn-outline-secondary" to="/login">Login</Link>
             <p>New Users</p>
-            <button className='btn btn-outline-secondary'>Register</button>
+            <Link className="btn btn-outline-secondary" to="/register">Register</Link>
         </div>
         );
     }
