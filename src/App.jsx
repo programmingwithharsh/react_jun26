@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProductDetail from './ProductDetail';
 import Register from './Register';
 import PageNotFound from './PageNotFound';
+import EditProduct from './EditProduct';
 
 class App extends React.Component {
 
@@ -23,6 +24,7 @@ class App extends React.Component {
     }
 
     componentDidMount() { // Mounting - component is created and displayed
+        // Call GET API, get data and update state
         console.log("App componentDidMount lifecycle 3");
         const dummyProducts = [ // default products
             {
@@ -96,6 +98,7 @@ class App extends React.Component {
                     <Route path="/addproduct" element={<AddProduct />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/product/:id" element={<ProductDetail />} />
+                    <Route path="/editproduct/:id" element={<EditProduct />} />
                     <Route path="*" element={<PageNotFound />} />
                 </Route>
                 <Route path="/register" element={<Register />} />

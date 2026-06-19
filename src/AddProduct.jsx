@@ -29,6 +29,9 @@ class AddProduct extends React.Component {
             "rating": rating
         }
         console.log(product);
+        /*
+            // Call POST API and send product data
+        */
         // later we can store this in localstorage
 
         let products = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : [];

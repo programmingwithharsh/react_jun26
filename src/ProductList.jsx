@@ -15,6 +15,7 @@ function ProductList(props) { // props.products is the array of object [{}, {}]
                         <th>Description</th>
                         <th>Price</th>
                         <th>Rating</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
