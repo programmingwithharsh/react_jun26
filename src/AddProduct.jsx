@@ -75,6 +75,7 @@ class AddProduct extends React.Component {
                 Price <input className="form-control" type="number" name="price" />
                 Rating <input className="form-control" type="number" name="rating" />
                 <input className="btn btn-primary mt-2" type="submit" value="Add Product - Submit Form Value" />
+                <input className="btn btn-primary m-2" type="reset" value="Reset" />
             </form>
             <Link className="btn btn-primary mt-2" to="/products">Add Product - Normal Link</Link>
         </div>

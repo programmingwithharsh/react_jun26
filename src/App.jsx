@@ -10,6 +10,7 @@ import ProductDetail from './ProductDetail';
 import Register from './Register';
 import PageNotFound from './PageNotFound';
 import EditProduct from './EditProduct';
+import HooksExample from './Hooks/HooksExample';
 
 class App extends React.Component {
 
@@ -99,6 +100,7 @@ class App extends React.Component {
                     <Route path="/login" element={<Login />} />
                     <Route path="/product/:id" element={<ProductDetail />} />
                     <Route path="/editproduct/:id" element={<EditProduct />} />
+                    <Route path="/hooks" element={<HooksExample />} />
                     <Route path="*" element={<PageNotFound />} />
                 </Route>
                 <Route path="/register" element={<Register />} />
