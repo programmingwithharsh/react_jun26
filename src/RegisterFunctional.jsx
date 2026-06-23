@@ -11,14 +11,14 @@ function RegisterFunctional() {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        console.log({ name }); // name is key and name value
-        console.log({ value });
-        console.log({ formData });
+        // console.log({ name }); // name is key and name value
+        // console.log({ value });
 
         setFormData({
             ...formData,
             [name]: value
         })
+        console.log({ formData });
     }
 
     const handleRegisterFetch = async (e) => {
