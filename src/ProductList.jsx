@@ -1,5 +1,6 @@
 import Product from "./Product";
 import { Link } from "react-router-dom";
+
 function ProductList(props) { // props.products is the array of object [{}, {}]
     return (
         <div className="table-responsive">

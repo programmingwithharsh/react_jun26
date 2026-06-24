@@ -1,5 +1,6 @@
 import Star from "./Star";
 import { Link } from 'react-router-dom';
+import styles from './style.module.css';
 
 function Product(props) {
     console.log("Product props is", props);
@@ -16,7 +17,7 @@ function Product(props) {
         </button></td>
     </tr>
 
-        <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
@@ -26,7 +27,7 @@ function Product(props) {
                     <div className="modal-body">
                         Are you sure?
                     </div>
-                    <div className="modal-footer">
+                    <div className={`modal-footer ${styles.customFooter}`}>
                         <button type="button" className="btn btn-primary">OK</button>
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     </div>
