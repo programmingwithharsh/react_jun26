@@ -3,7 +3,7 @@ import CarouselExample from './CarouselExample';
 import GridExample from './GridExample';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Spinner from 'react-bootstrap/Spinner';
-
+import ModalExample from './ModalExample';
 
 function ReactBootstrap() {
     return (<>
@@ -13,6 +13,7 @@ function ReactBootstrap() {
         <GridExample />
         <ProgressBar animated now={45} />;
         <Spinner animation="border" variant="primary" />
+        <ModalExample />
     </>);
 }
 
