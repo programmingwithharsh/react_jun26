@@ -11,7 +11,8 @@ import Register from './Register';
 import PageNotFound from './PageNotFound';
 import EditProduct from './EditProduct';
 import HooksExample from './Hooks/HooksExample';
-import CoreBootstrap from './Bootstrap/CoreBootstrap';
+import CoreBootstrap from './Core-Bootstrap/CoreBootstrap';
+import ReactBootstrap from './React-Bootstrap/ReactBootstrap';
 
 class App extends React.Component {
 
@@ -103,6 +104,7 @@ class App extends React.Component {
                     <Route path="/editproduct/:id" element={<EditProduct />} />
                     <Route path="/hooks" element={<HooksExample />} />
                     <Route path="/corebs" element={<CoreBootstrap />} />
+                    <Route path="/reactbs" element={<ReactBootstrap />} />
                     <Route path="*" element={<PageNotFound />} />
                 </Route>
                 <Route path="/register" element={<Register />} />

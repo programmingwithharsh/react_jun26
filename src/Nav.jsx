@@ -21,14 +21,17 @@ function Nav() {
                         <li className="nav-item">
                             <Link className="nav-link" to="/login">Login</Link>
                         </li>
-                         <li className="nav-item">
+                        <li className="nav-item">
                             <Link className="nav-link" to="/register">Register</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/hooks">Hooks</Link>
                         </li>
-                         <li className="nav-item">
+                        <li className="nav-item">
                             <Link className="nav-link" to="/corebs">Core Bootstrap</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/reactbs">React Bootstrap</Link>
                         </li>
                     </ul>
                 </div>
