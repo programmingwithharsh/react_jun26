@@ -13,6 +13,7 @@ import EditProduct from './EditProduct';
 import HooksExample from './Hooks/HooksExample';
 import CoreBootstrap from './Core-Bootstrap/CoreBootstrap';
 import ReactBootstrap from './React-Bootstrap/ReactBootstrap';
+import { removeProduct, addProduct, loadProducts } from './redux/actions';
 
 class App extends React.Component {
 
@@ -57,6 +58,24 @@ class App extends React.Component {
         this.setState({
             products: storedProducts
         })
+
+        // Below action we can use on delete product
+        this.props.dispatch(removeProduct(2));
+
+        // Below action we can use on add product component
+        this.props.dispatch(addProduct({
+            "productId": 3,
+            "productName": "iPhone - Redux",
+            "productCode": "GDN-0022",
+            "releaseDate": "March 18, 2026",
+            "description": "15 gallon capacity rolling garden cart",
+            "price": 90000,
+            "starRating": 5,
+            "imageUrl": "https://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
+        }));
+
+        // Just to load products
+        this.props.dispatch(loadProducts());
     }
 
     addProduct = (productSubmitted) => {
@@ -85,7 +104,7 @@ class App extends React.Component {
             <Routes>
                 <Route path="/" element={<Nav />}>
                     <Route index element={<Welcome userProps={this.props.userProps}></Welcome>} />
-                    <Route path="/products" element={<ProductList products={this.state.products}></ProductList>} />
+                    <Route path="/products" element={<ProductList products={this.props.products}></ProductList>} />
                     <Route path="/title" element={<Title></Title>} />
                     <Route path="/addproduct" element={<AddProduct onAddProduct={(addedProduct) => this.addProduct(addedProduct)} />} />
                     <Route path="/login" element={<Login />} />

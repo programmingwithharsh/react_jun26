@@ -3,7 +3,7 @@ import Star from "./Star";
 import { Link } from 'react-router-dom';
 import { useState } from "react";
 
-function ProductList(props) {
+export default function ProductList(props) {
     const [deleteId, setDeleteId] = useState(null);
 
     const openDeleteModal = (id) => {
@@ -72,5 +72,3 @@ function ProductList(props) {
         </div>
     );
 }
-
-export default ProductList;
