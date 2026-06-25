@@ -8,7 +8,7 @@ const WithContext = () => {
     return (<>
         <h1>With Context</h1>
         <h2>In Component 1, Username is {username}</h2>
-        <userContext.Provider value={username}>
+        <userContext.Provider value={{ username, setUsername }}>
             <C2 />
         </userContext.Provider>
     </>);
@@ -33,10 +33,9 @@ const C4 = () => {
 }
 
 const C5 = () => {
-    const username = useContext(userContext); // using context
+    const { username, setUsername } = useContext(userContext);
     // username = "Harsh"; // this will not work
-    // const { setUsername } = useContext(userContext); // using context
-    // setUsername("Anuradha");
+    setUsername("Anuradha");
     return (<>
         <div>In Component 5, username is {username}</div>
     </>);

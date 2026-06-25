@@ -26,7 +26,7 @@ function CoreBootstrap() {
                     <button type="button">Without class Button</button> {/* Write own css code */}
                 </div>
                 <div className="col-4">
-                    <button type="button" class="btn btn-primary">With Class Button</button> {/* using bootstrap class for button */}
+                    <button type="button" className="btn btn-primary">With Class Button</button> {/* using bootstrap class for button */}
                 </div>
                 <div className="col-4">
                     <Button variant="primary">React Bootstrap Module Button</Button> {/* Button component */}

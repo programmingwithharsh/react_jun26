@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class Welcome extends React.Component {
+// class Welcome extends React.Component {
+class Welcome extends React.PureComponent {
 
     constructor(props) {
         super(props);
@@ -30,6 +31,7 @@ class Welcome extends React.Component {
         console.log(user);
         console.log(users);
         console.log(localStorage.getItem("flowers"));
+        console.log("Welcome component mounted");
     }
 
 
@@ -39,7 +41,12 @@ class Welcome extends React.Component {
         })
     }
 
+    componentWillUnmount() {
+        console.log("Welcome component unmounted");
+    }
+
     render() {
+        console.log(this.state);
         let myStyle = { color: 'white', backgroundColor: 'green' };
         return (<div>
 
