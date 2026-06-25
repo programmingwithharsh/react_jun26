@@ -1,8 +1,22 @@
 // import Product from "./Product";
 import Star from "./Star";
 import { Link } from 'react-router-dom';
+import { useState } from "react";
 
 function ProductList(props) {
+    const [deleteId, setDeleteId] = useState(null);
+
+    const openDeleteModal = (id) => {
+        setDeleteId(id)
+    }
+
+    const confirmOk = () => {
+        const storedProducts = JSON.parse(localStorage.getItem("products")) || []; // get all products from localstorage
+        let updatedProducts = storedProducts.filter(p => p.productId !== deleteId); // filter localstorage products based on deleteId
+        localStorage.setItem("products", JSON.stringify(updatedProducts)); // setting again in localstorage
+        window.location.reload(); // reload browser
+    }
+
     return (
         <div className="table-responsive">
             <h1>This is Product List Functional Component</h1>
@@ -29,7 +43,7 @@ function ProductList(props) {
                             <td>{product.description}</td>
                             <td>{product.price}</td>
                             <td><Star rating={product.starRating}></Star></td>
-                            <td><Link to={`/editproduct/${product.productId}`}>Edit</Link> | <button type="button" className="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <td><Link to={`/editproduct/${product.productId}`}>Edit</Link> | <button type="button" className="btn btn-link" data-bs-toggle="modal" data-bs-target="#deleteModal" onClick={() => openDeleteModal(product.productId)}>
                                 Delete
                             </button></td>
                         </tr>
@@ -37,7 +51,7 @@ function ProductList(props) {
                 </tbody>
             </table>
 
-            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="deleteModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -48,7 +62,7 @@ function ProductList(props) {
                             Are you sure?
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-primary">OK</button>
+                            <button type="button" className="btn btn-primary" onClick={confirmOk}>OK</button>
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         </div>
                     </div>

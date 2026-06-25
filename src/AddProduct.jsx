@@ -18,6 +18,7 @@ class AddProduct extends React.Component {
         const description = event.target.elements.description.value;
         const price = event.target.elements.price.value;
         const rating = event.target.elements.rating.value;
+        const imageUrl = event.target.elements.imageUrl.value;
 
         const product = {
             "productId": Number(new Date()),
@@ -26,7 +27,8 @@ class AddProduct extends React.Component {
             "releaseDate": releaseDate,
             "description": description,
             "price": price,
-            "rating": rating
+            "rating": rating,
+            "imageUrl": imageUrl
         }
         console.log(product);
         /*
@@ -41,6 +43,7 @@ class AddProduct extends React.Component {
             alert("Enter product name");
         } else {
             localStorage.setItem("products", JSON.stringify(products)); // array of object
+            this.props.onAddProduct(product); // using functional props
             this.setState({
                 redirect: true
             })
@@ -74,6 +77,7 @@ class AddProduct extends React.Component {
                 Description <input className="form-control" type="text" name="description" placeholder="Enter Description" />
                 Price <input className="form-control" type="number" name="price" />
                 Rating <input className="form-control" type="number" name="rating" />
+                Image Url<input className="form-control" type="text" name="imageUrl" />
                 <input className="btn btn-primary mt-2" type="submit" value="Add Product - Submit Form Value" />
                 <input className="btn btn-primary m-2" type="reset" value="Reset" />
             </form>
