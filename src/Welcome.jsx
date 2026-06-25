@@ -10,14 +10,18 @@ class Welcome extends React.PureComponent {
             username: "Anuradha"
         }
 
+        /*
+
         localStorage.setItem("username", "Dheeraj"); // string
         localStorage.setItem("active", true); // boolean
         localStorage.setItem("user", JSON.stringify({ id: 1, name: "Pooja" })); // object
         localStorage.setItem("users", JSON.stringify([{ id: 1, name: "Pooja" }, { id: 2, name: "Neha" }])); // array of object
         localStorage.setItem("flowers", ["Rose", "Dahlia", "Magnolia", "Tulip", "Daisy"]);
+       
 
         let user = JSON.parse(localStorage.getItem("user"));
         let users = JSON.parse(localStorage.getItem("users"));
+        */
 
         /*
         console.log(typeof localStorage.getItem("username"));
@@ -26,12 +30,14 @@ class Welcome extends React.PureComponent {
         console.log(typeof localStorage.getItem("flowers"));
         */
 
+        /*
         console.log(localStorage.getItem("username"));
         console.log(localStorage.getItem("active"));
         console.log(user);
         console.log(users);
         console.log(localStorage.getItem("flowers"));
         console.log("Welcome component mounted");
+        */
     }
 
 

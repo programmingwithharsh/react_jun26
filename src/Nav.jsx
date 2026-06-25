@@ -16,6 +16,9 @@ function Nav() {
                             <Link className="nav-link" to="/products">Products</Link>
                         </li>
                         <li className="nav-item">
+                            <Link className="nav-link" to="/addproduct">Add Product</Link>
+                        </li>
+                        <li className="nav-item">
                             <Link className="nav-link" to="/title">Title</Link>
                         </li>
                         <li className="nav-item">
@@ -33,6 +36,7 @@ function Nav() {
                         <li className="nav-item">
                             <Link className="nav-link" to="/reactbs">React Bootstrap</Link>
                         </li>
+
                     </ul>
                 </div>
             </div>

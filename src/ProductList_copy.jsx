@@ -1,9 +1,11 @@
-// import Product from "./Product";
-import Star from "./Star";
-function ProductList(props) {
+import Product from "./Product";
+import { Link } from "react-router-dom";
+
+function ProductList(props) { // props.products is the array of object [{}, {}]
     return (
         <div className="table-responsive">
             <h1>This is Product List Functional Component</h1>
+            <Link className="btn btn-primary m-2" to="/addproduct">Add Product</Link>
             <table className="table table-striped table-bordered table-hover">
                 <thead>
                     <tr>
@@ -14,19 +16,12 @@ function ProductList(props) {
                         <th>Description</th>
                         <th>Price</th>
                         <th>Rating</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {props.products.map((product, index) => (
-                        <tr key={index}>
-                            <td><img src={product.imageUrl} width="50" height="50" /></td>
-                            <td>{product.productName}</td>
-                            <td>{product.productCode}</td>
-                            <td>{product.releaseDate}</td>
-                            <td>{product.description}</td>
-                            <td>{product.price}</td>
-                            <td><Star rating={product.starRating}></Star></td>
-                        </tr>
+                        <Product key={index} product={product} />
                     ))}
                 </tbody>
             </table>
