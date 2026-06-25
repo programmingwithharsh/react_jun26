@@ -1,5 +1,5 @@
 import products from '../data/products';
-
+// products will get replaced with API response data
 const ProductReducer = (state = products, action) => { // update state based on action
     switch (action.type) {
         case "REMOVE_PRODUCT":

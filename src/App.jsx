@@ -103,7 +103,7 @@ class App extends React.Component {
         return (<BrowserRouter>
             <Routes>
                 <Route path="/" element={<Nav />}>
-                    <Route index element={<Welcome userProps={this.props.userProps}></Welcome>} />
+                    <Route index element={<Welcome userProps={this.props.userProps} {...this.props}></Welcome>} />
                     <Route path="/products" element={<ProductList products={this.props.products}></ProductList>} />
                     <Route path="/title" element={<Title></Title>} />
                     <Route path="/addproduct" element={<AddProduct onAddProduct={(addedProduct) => this.addProduct(addedProduct)} />} />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { removeProduct, addProduct, loadProducts } from './redux/actions';
 
 // class Welcome extends React.Component {
 class Welcome extends React.PureComponent {
@@ -49,6 +50,26 @@ class Welcome extends React.PureComponent {
 
     componentWillUnmount() {
         console.log("Welcome component unmounted");
+    }
+
+    componentDidMount() {
+        // Below action we can use on delete product
+        this.props.dispatch(removeProduct(2));
+
+        // Below action we can use on add product component
+        this.props.dispatch(addProduct({
+            "productId": 3,
+            "productName": "iPhone - Redux",
+            "productCode": "GDN-0022",
+            "releaseDate": "March 18, 2026",
+            "description": "15 gallon capacity rolling garden cart",
+            "price": 90000,
+            "starRating": 5,
+            "imageUrl": "https://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
+        }));
+
+        // Just to load products
+        this.props.dispatch(loadProducts());
     }
 
     render() {
