@@ -7,10 +7,19 @@ import WithoutContext from './WithoutContext';
 import WithContext from './WithContext';
 import UnControlledExample from './UnControlledExample';
 import UseReducerExample from './UseReducerExample';
+import UseCustomHookExample from './UseCustomHookExample';
+import ObservableExample from './ObservableExample';
+import ReactMemoExample from './ReactMemoExample';
+import UseMemoExample from './UseMemoExample';
+import UseCallbackExample from './UseCallbackExample';
 
 function HooksExample() {
     return (<>
         <h1>Hooks Example</h1>
+        <UseCallbackExample />
+        <UseMemoExample />
+        <ReactMemoExample />
+        <UseCustomHookExample />
         <UseReducerExample />
         <UnControlledExample />
         <WithoutContext />

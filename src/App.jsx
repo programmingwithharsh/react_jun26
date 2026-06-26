@@ -106,7 +106,7 @@ class App extends React.Component {
                     <Route index element={<Welcome userProps={this.props.userProps} {...this.props}></Welcome>} />
                     <Route path="/products" element={<ProductList products={this.props.products}></ProductList>} />
                     <Route path="/title" element={<Title></Title>} />
-                    <Route path="/addproduct" element={<AddProduct onAddProduct={(addedProduct) => this.addProduct(addedProduct)} />} />
+                    <Route path="/addproduct" element={<AddProduct address="Pune" onAddProduct={(addedProduct) => this.addProduct(addedProduct)} />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/product/:id" element={<ProductDetail />} />
                     <Route path="/editproduct/:id" element={<EditProduct onUpdateProduct={(p) => this.updateProduct(p)} user={this.props.userProps} />} />

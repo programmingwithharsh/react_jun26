@@ -8,7 +8,8 @@ class Welcome extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            username: "Anuradha"
+            username: "Anuradha",
+            count: 0
         }
 
         /*
@@ -41,7 +42,6 @@ class Welcome extends React.PureComponent {
         */
     }
 
-
     updateUsername = () => {
         this.setState({
             username: "Neha"
@@ -72,10 +72,37 @@ class Welcome extends React.PureComponent {
         this.props.dispatch(loadProducts());
     }
 
+    shouldComponentUpdate() {
+        // return true; // default allow rerender
+        return true; // block rerender
+    }
+
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        document.getElementById("div1").innerHTML = "Before Update " + prevState.count;
+        return true;
+    }
+
+    componentDidUpdate() {
+        document.getElementById("div2").innerHTML = "After Update " + this.state.count;
+    }
+
+    increment = () => {
+        this.setState({
+            count: this.state.count + 1
+        })
+    }
+
     render() {
         console.log(this.state);
         let myStyle = { color: 'white', backgroundColor: 'green' };
         return (<div>
+
+            <div>
+                <div className='alert alert-primary' id='div1'>Before Update</div>
+                <div className='alert alert-primary' id='div2'>After Update</div>
+            </div>
+
+            <button className='btn btn-primary' onClick={this.increment}>Increment</button>
 
             <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal

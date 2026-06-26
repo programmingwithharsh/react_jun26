@@ -18,7 +18,28 @@ const UseEffectExample = () => {
 
     useEffect(() => {
         console.log("useEffect for axios");
-        axios.get("http://localhost:3000/")
+
+        // Simple interceptor example: log outgoing requests and incoming responses.
+        const requestInterceptor = axios.interceptors.request.use(
+            (config) => {
+                console.log("[axios request]", config.method?.toUpperCase(), config.url);
+                return config;
+            },
+            (error) => Promise.reject(error)
+        );
+
+        const responseInterceptor = axios.interceptors.response.use(
+            (response) => {
+                console.log("[axios response]", response.status, response.config?.url);
+                return response;
+            },
+            (error) => {
+                console.log("[axios response error]", error?.message);
+                return Promise.reject(error);
+            }
+        );
+
+        axios.get("https://jsonplaceholder.typicode.com/users")
             .then((response) => {
                 console.log("axios", response);
                 setData(response.data); // updating users
@@ -26,6 +47,11 @@ const UseEffectExample = () => {
             .catch(function (error) {
                 console.log(error); // handle error
             })
+
+        return () => {
+            axios.interceptors.request.eject(requestInterceptor);
+            axios.interceptors.response.eject(responseInterceptor);
+        };
     }, []) // effect will run once
 
     return (<>
